@@ -10,8 +10,9 @@ namespace Player
 
         public PlayerMovementController move;
         public PlayerRotationController look;
-        public CameraController cam;
         public Inventory inventory;
+        public CameraController cam;
+        public PlayerCameraAnimator camAnimator;
 
         private void Awake()
         {

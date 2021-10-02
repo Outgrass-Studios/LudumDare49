@@ -16,7 +16,7 @@ namespace Player
 
         private void Update()
         {
-            if (!CursorManager.IsLocked()) return;
+            if (!CursorManager.IsMouseLocked() || !CursorManager.CanLook()) return;
             rotation.x += Input.GetAxis("Mouse X") * MouseSensitivity;
             rotation.y = Mathf.Clamp(rotation.y - Input.GetAxis("Mouse Y") * MouseSensitivity, -90f, 90f);
             ApplyRotation();

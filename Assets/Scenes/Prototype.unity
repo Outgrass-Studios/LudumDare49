@@ -2861,7 +2861,7 @@ GameObject:
   - component: {fileID: 546104815}
   - component: {fileID: 546104814}
   m_Layer: 0
-  m_Name: Cylinder
+  m_Name: Builderman
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
