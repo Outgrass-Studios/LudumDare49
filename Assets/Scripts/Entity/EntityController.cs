@@ -1,6 +1,7 @@
 using qASIC;
 using UnityEngine;
 using Player;
+using System;
 
 namespace Entity
 {
@@ -15,6 +16,16 @@ namespace Entity
 
         float currentPatience;
         float impatienceValue;
+
+        public static Action OnEntityReset;
+
+        public static int AILevel { get; set; } = 1;
+
+        public virtual void ResetEntity() 
+        {
+            currentPatience = defaultPatience;
+            ResetImpatienceValue();
+        }
 
         /// <summary>Triggered when player ignores entity</summary>
         public virtual void OnPlayerIgnore() { }
@@ -32,20 +43,32 @@ namespace Entity
             entityCollider = GetComponent<Collider>();
         }
 
+        void ResetImpatienceValue() =>
+            impatienceValue = UnityEngine.Random.Range(0f, -impatienceRange);
+
         public virtual void Awake()
         {
             if (entityCollider == null)
                 qDebug.LogError("Renderer not assigned!");
 
-            currentPatience = defaultPatience;
-            impatienceValue = Random.Range(0f, -impatienceRange);
+            ResetEntity();
+
+            OnEntityReset += ResetEntity;
+        }
+
+        private void OnDestroy()
+        {
+            OnEntityReset -= ResetEntity;
         }
 
         public virtual void FixedUpdate()
         {
+            if (AILevel <= 0) return;
+
             if(IsRendered())
             {
-                currentPatience = Mathf.Clamp(currentPatience + Time.fixedDeltaTime * noticeMultiplier, float.MinValue, maxPatience);
+                if (currentPatience > maxPatience) return;
+                currentPatience += Time.fixedDeltaTime * noticeMultiplier;
                 return;
             }
 
@@ -54,6 +77,7 @@ namespace Entity
             if (currentPatience > impatienceValue) return;
             OnPlayerIgnore();
             currentPatience = resetPatience;
+            ResetImpatienceValue();
             qDebug.Log($"[{GetType()}] Entity impatience triggered, impatience level has been reset to {currentPatience}", "entity");
         }
     }
