@@ -73,8 +73,9 @@ public class CartController : MonoBehaviour
     void PlayAnimation(CartAnimation animation)
     {
         currentAnimation = animation;
+        PlayerReference.IsAnimated = true;
         time = 0f;
-        cameraTransform = Player.PlayerReference.Singleton.cam.transform;
+        cameraTransform = PlayerReference.Singleton.cam.transform;
         if (cameraTransform != null) cameraTransform.eulerAngles = cameraRotation;
         CursorManager.ChangeLookState("cart", false);
         CursorManager.ChangeMovementState("cart", false);
@@ -95,6 +96,7 @@ public class CartController : MonoBehaviour
 
         if (time < currentAnimation.duration) return;
         currentAnimation = null;
+        PlayerReference.IsAnimated = false;
         OnEndAnimation?.Invoke();
         OnEndAnimation = new Action(() => { });
     }
@@ -109,5 +111,20 @@ public class CartController : MonoBehaviour
     {
         CursorManager.ChangeLookState("cart", true);
         CursorManager.ChangeMovementState("cart", true);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (!other.CompareTag("Player")) return;
+        if (remainingTasks > 0) return;
+
+        CursorManager.ChangeLookState("cart", false);
+        CursorManager.ChangeMovementState("cart", false);
+
+        PlayerReference.Singleton.camAnimator.AnimateToPosition(cart.position + cameraOffset, Quaternion.Euler(cameraRotation), new Action(() => 
+        {
+            PlayAnimation(endAnimation);
+            OnEndAnimation = new Action(() => { });
+        }));
     }
 }

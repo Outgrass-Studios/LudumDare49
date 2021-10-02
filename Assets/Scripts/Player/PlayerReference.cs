@@ -14,6 +14,8 @@ namespace Player
         public CameraController cam;
         public PlayerCameraAnimator camAnimator;
 
+        public static bool IsAnimated { get; set; }
+
         private void Awake()
         {
             if (Singleton != null)

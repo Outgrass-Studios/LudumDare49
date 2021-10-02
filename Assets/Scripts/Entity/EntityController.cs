@@ -63,7 +63,7 @@ namespace Entity
 
         public virtual void FixedUpdate()
         {
-            if (AILevel <= 0 || CartController.Singleton?.IsAnimating() == true) return;
+            if (AILevel <= 0 || PlayerReference.IsAnimated) return;
 
             if(IsRendered())
             {

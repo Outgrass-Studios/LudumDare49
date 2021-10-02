@@ -1,6 +1,7 @@
 using UnityEngine;
+using Items;
 
-namespace Items.Triggers
+namespace Triggers
 {
     public class ItemTriggerPosition : MonoBehaviour
     {
@@ -10,7 +11,7 @@ namespace Items.Triggers
         {
             ItemTrigger trigger = GetComponent<ItemTrigger>();
             if (trigger == null) return;
-            trigger.OnTrigger += HandleTrigger;
+            trigger.OnTrigger.AddListener(HandleTrigger);
         }
 
         void HandleTrigger(Item item)

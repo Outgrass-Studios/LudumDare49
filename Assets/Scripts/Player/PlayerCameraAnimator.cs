@@ -25,22 +25,24 @@ namespace Player
 
         public void AnimateToPosition(Vector3 pos, Quaternion rot, Action onEnd)
         {
-            startPosition = transform.localPosition;
+            startPosition = transform.position;
             endPosition = pos;
-            startRotation = transform.rotation;
+            startRotation = transform.localRotation;
             endRotation = rot;
             OnEndAnimation = onEnd;
             animating = true;
+            time = 0f;
+            PlayerReference.IsAnimated = true;
         }
 
         public void AnimateToPosition(Vector3 pos, Quaternion rot) =>
             AnimateToPosition(pos, rot, new Action(() => { }));
 
         public void ResetCameraSmooth(Action onEnd) =>
-            AnimateToPosition(Vector3.zero, Quaternion.identity, onEnd);
+            AnimateToPosition(transform.parent.position, Quaternion.identity, onEnd);
 
         public void ResetCameraSmooth() =>
-            AnimateToPosition(Vector3.zero, Quaternion.identity);
+            ResetCameraSmooth(new Action(() => { }));
 
         private void Update()
         {
@@ -48,11 +50,12 @@ namespace Player
 
             time += Time.deltaTime;
             float value = curve.Evaluate(time / duration);
-            transform.localPosition = Vector3.Lerp(startPosition, endPosition, value);
+            transform.position = Vector3.Lerp(startPosition, endPosition, value);
             transform.localRotation = Quaternion.Lerp(startRotation, endRotation, value);
 
             if (time < duration) return;
             animating = false;
+            PlayerReference.IsAnimated = false;
             OnEndAnimation?.Invoke();
         }
     }
