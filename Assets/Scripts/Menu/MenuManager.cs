@@ -23,8 +23,11 @@ namespace Menu
             Singleton = this;
         }
 
-        private void Start() =>
+        private void Start()
+        {
+            if (string.IsNullOrWhiteSpace(defaultMenu)) return;
             ChangeMenu(defaultMenu);
+        }
 
         public void AddMenu(MenuController menu) =>
             menus.Add(menu);
