@@ -4,7 +4,7 @@ using System.Collections;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
-public class PlayerDamage : MonoBehaviour
+public class Damage : MonoBehaviour
 {
     int health = 100;
     int maxHealth;
