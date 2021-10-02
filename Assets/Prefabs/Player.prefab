@@ -144,6 +144,8 @@ GameObject:
   - component: {fileID: 1260531452463023046}
   - component: {fileID: 1260531452463023049}
   - component: {fileID: 9159729230525884700}
+  - component: {fileID: 3087412481865707886}
+  - component: {fileID: 4559659797278664310}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -283,3 +285,32 @@ MonoBehaviour:
   move: {fileID: 1260531452463023046}
   look: {fileID: 1260531452463023049}
   cam: {fileID: 2709441128165443454}
+  inventory: {fileID: 3087412481865707886}
+--- !u!114 &3087412481865707886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1260531452463023047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4149d2b6e8251c041a25c97539b0bdb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4559659797278664310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1260531452463023047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ca49028be550454c9555203da9d251e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source: {fileID: 1260531450764551127}
+  mask:
+    serializedVersion: 2
+    m_Bits: 127

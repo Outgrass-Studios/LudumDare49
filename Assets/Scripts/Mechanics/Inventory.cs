@@ -1,36 +1,36 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using System;
 
-public class Inventory : MonoBehaviour
+namespace Items
 {
-    Item pickedUpItem = null;
-    public Image miniature;
+    public class Inventory : MonoBehaviour
+    {
+        Item pickedUpItem = null;
 
-    public void PickUpItem(Item item)
-    {
-        if (!HasItem())
+        public Action<Item> OnItemPickUp;
+
+        public void PickUpItem(Item item)
         {
-            pickedUpItem = item;
-            item.gameObject.SetActive(false);
-            miniature.color = new Color(1, 1, 1, 1);
-            miniature.sprite = item.inventoryMiniature;
+            if (!HasItem())
+            {
+                pickedUpItem = item;
+                item.gameObject.SetActive(false);
+                OnItemPickUp?.Invoke(item);
+            }
         }
-    }
-    public void PlaceItem(Vector3 position)
-    {
-        if (HasItem())
+        public void PlaceItem(Vector3 position)
         {
-            pickedUpItem.transform.position = position;
-            pickedUpItem.gameObject.SetActive(true);
-            pickedUpItem = null;
-            miniature.color = new Color(1, 1, 1, 0);
-            miniature.sprite = null;
+            if (HasItem())
+            {
+                pickedUpItem.transform.position = position;
+                pickedUpItem.gameObject.SetActive(true);
+                pickedUpItem = null;
+                OnItemPickUp?.Invoke(null);
+            }
         }
-    }
-    public bool HasItem()
-    {
-        return pickedUpItem;
+        public bool HasItem()
+        {
+            return pickedUpItem;
+        }
     }
 }

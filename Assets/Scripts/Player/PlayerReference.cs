@@ -1,5 +1,6 @@
 using qASIC;
 using UnityEngine;
+using Items;
 
 namespace Player
 {
@@ -10,6 +11,7 @@ namespace Player
         public PlayerMovementController move;
         public PlayerRotationController look;
         public CameraController cam;
+        public Inventory inventory;
 
         private void Awake()
         {
