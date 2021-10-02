@@ -1,11 +1,12 @@
 using qASIC;
 using UnityEngine;
+using Player;
 
 namespace Entity
 {
     public abstract class EntityController : MonoBehaviour
     {
-        [SerializeField] Renderer entityRenderer;
+        [SerializeField] Collider entityCollider;
         [SerializeField] float maxPatience = 20f;
         [SerializeField] float resetPatience = 30f;
         [SerializeField] float defaultPatience = 10f;
@@ -18,17 +19,22 @@ namespace Entity
         /// <summary>Triggered when player ignores entity</summary>
         public virtual void OnPlayerIgnore() { }
 
-        public bool IsRendered() =>
-            entityRenderer == null || entityRenderer.isVisible;
+        public bool IsRendered()
+        {
+            if (entityCollider == null) return true;
+
+            Plane[] planes = GeometryUtility.CalculateFrustumPlanes(PlayerReference.Singleton.cam.TargetCamera);
+            return GeometryUtility.TestPlanesAABB(planes, entityCollider.bounds);
+        }
 
         private void Reset()
         {
-            entityRenderer = GetComponent<Renderer>();
+            entityCollider = GetComponent<Collider>();
         }
 
         public virtual void Awake()
         {
-            if (entityRenderer == null)
+            if (entityCollider == null)
                 qDebug.LogError("Renderer not assigned!");
 
             currentPatience = defaultPatience;
