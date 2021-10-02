@@ -34,3 +34,5 @@ MonoBehaviour:
     color: {r: 1, g: 0.6313726, b: 0, a: 1}
   - colorName: trigger
     color: {r: 1, g: 0, b: 1, a: 1}
+  - colorName: player
+    color: {r: 0, g: 0.17392573, b: 0.6037736, a: 1}

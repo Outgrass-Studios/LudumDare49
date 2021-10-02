@@ -11,6 +11,7 @@ namespace Player
         public PlayerMovementController move;
         public PlayerRotationController look;
         public Inventory inventory;
+        public PlayerDamage damage;
         public CameraController cam;
         public PlayerCameraAnimator camAnimator;
 
