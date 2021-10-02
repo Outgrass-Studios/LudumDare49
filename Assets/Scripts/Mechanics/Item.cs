@@ -1,9 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Item : MonoBehaviour
+namespace Items
 {
-    public Sprite inventoryMiniature;
-    public GameObject itemObject;
+    public class Item : MonoBehaviour
+    {
+        public int itemIndex;
+    }
 }

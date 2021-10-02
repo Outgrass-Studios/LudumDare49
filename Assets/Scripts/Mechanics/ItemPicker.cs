@@ -1,47 +1,49 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Inventory))]
-public class ItemPicker : MonoBehaviour
+namespace Items
 {
-    public Transform source;
-    private Inventory inventory;
-    RaycastHit hit;
+    [RequireComponent(typeof(Inventory))]
+    public class ItemPicker : MonoBehaviour
+    {
+        public Transform source;
+        private Inventory inventory;
+        [SerializeField] LayerMask mask;
+        RaycastHit hit;
 
-    void Start()
-    {
-        inventory = GetComponent<Inventory>();
-    }
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
-            TryPickUp();
-        if(Input.GetKeyDown(KeyCode.Mouse1))
-            PlaceItem();
-    }
-    void TryPickUp()
-    {
-        if(Raycast())
+        void Start()
         {
-            GameObject hitObject = hit.collider.gameObject;
-            if (hitObject.CompareTag("Item"))
+            inventory = GetComponent<Inventory>();
+        }
+        void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Mouse0))
+                TryPickUp();
+            if (Input.GetKeyDown(KeyCode.Mouse1))
+                PlaceItem();
+        }
+        void TryPickUp()
+        {
+            if (Raycast())
             {
-                inventory.PickUpItem(hitObject.GetComponent<Item>());
+                GameObject hitObject = hit.collider.gameObject;
+                if (hitObject.CompareTag("Item"))
+                {
+                    inventory.PickUpItem(hitObject.GetComponent<Item>());
+                }
             }
         }
-    }
-    void PlaceItem()
-    {
-        if(Raycast())
+        void PlaceItem()
         {
-            Vector3 placePos = hit.point;
-            inventory.PlaceItem(placePos);
+            if (Raycast())
+            {
+                Vector3 placePos = hit.point;
+                inventory.PlaceItem(placePos);
+            }
         }
-    }
 
-    bool Raycast()
-    {
-        return source && Physics.Raycast(new Ray(source.position, source.forward), out hit, 10);
+        bool Raycast()
+        {
+            return source && Physics.Raycast(new Ray(source.position, source.forward), out hit, 10, mask);
+        }
     }
 }

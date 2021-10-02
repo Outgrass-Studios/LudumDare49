@@ -6,10 +6,10 @@ namespace Player
 {
     public class CameraController : MonoBehaviour
     {
+        public Camera TargetCamera { get => cam; }
         Camera cam;
 
         public static float FOV { get; set; } = 60f;
-
         public static Action OnFOVChange;
 
         private void Awake()

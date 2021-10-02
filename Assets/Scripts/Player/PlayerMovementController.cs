@@ -43,7 +43,7 @@ namespace Player
 
         Vector3 GetPath()
         {
-            if (!CursorManager.IsLocked())
+            if (!CursorManager.CanMove())
                 return new Vector3();
 
             float y = InputManager.GetAxis("Up", "Down");
@@ -73,7 +73,7 @@ namespace Player
                     if (!isGrounded) return velocity -= gravity * Time.deltaTime;
 
                     velocity = -groundVelocity;
-                    if (InputManager.GetInput("Jump") && CursorManager.IsLocked())
+                    if (InputManager.GetInput("Jump") && CursorManager.CanMove())
                         velocity = Mathf.Sqrt(jumpHeight * 2f * gravity);
                     break;
             }
