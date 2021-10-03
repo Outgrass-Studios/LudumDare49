@@ -26,8 +26,8 @@ namespace Mechanics
         }
         void ChangeInputNumbness(bool numb)
         {
-            CursorManager.ChangeState("move", !numb);
-            CursorManager.ChangeState("look", !numb);
+            CursorManager.ChangeLookState("interact", !numb);
+            CursorManager.ChangeMovementState("interact", !numb);
         }
         bool Raycast()
         {
