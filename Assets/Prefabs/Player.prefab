@@ -183,6 +183,8 @@ GameObject:
   - component: {fileID: 3087412481865707886}
   - component: {fileID: 4559659797278664310}
   - component: {fileID: 4356376020327429843}
+  - component: {fileID: 1776214672}
+  - component: {fileID: 1920048161351105582}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -366,6 +368,36 @@ MonoBehaviour:
     m_RotationOrder: 4
   fadeColor: {r: 1, g: 0, b: 0, a: 1}
   fadeDuration: 2
+--- !u!114 &1776214672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1260531452463023047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22990772ffc18674c9facd1b578f8478, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source: {fileID: 1260531450764551127}
+  mask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &1920048161351105582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1260531452463023047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 471b6e782ca2e2147a3f2f18bb823177, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateName: global
+  state: 1
 --- !u!1 &3119982555256398615
 GameObject:
   m_ObjectHideFlags: 0

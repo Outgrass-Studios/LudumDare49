@@ -11,17 +11,19 @@ namespace Mechanics
 
         void Update()
         {
+            if (!CursorManager.CanMove()) return;
+
             if (InputManager.GetInputDown("Interaction"))
             {
-                if (Raycast())
-                    if (hit.collider.gameObject.TryGetComponent(out Interactable interactable))
-                    {
-                        ChangeInputNumbness(true);
-                        interactable.Interact(new System.Action(() =>
-                        {
-                            ChangeInputNumbness(false);
-                        }));
-                    }
+                if (!Raycast()) return;
+                if (!hit.collider.gameObject.TryGetComponent(out Interactable interactable)) return;
+                if (!interactable.IsActive) return;
+
+                ChangeInputNumbness(true);
+                interactable.Interact(new System.Action(() =>
+                {
+                    ChangeInputNumbness(false);
+                }));
             }
         }
         void ChangeInputNumbness(bool numb)
