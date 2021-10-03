@@ -1,6 +1,7 @@
 using UnityEngine.SceneManagement;
 using UnityEngine;
 using System;
+using qASIC;
 
 namespace Triggers
 {
@@ -12,6 +13,7 @@ namespace Triggers
         private void OnTriggerEnter(Collider other)
         {
             if (!other.CompareTag("Cart")) return;
+            qDebug.Log($"level trigger has been triggered by cart", "trigger");
             int sceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
             if (!Application.CanStreamedLevelBeLoaded(sceneIndex)) sceneIndex = 0;
 

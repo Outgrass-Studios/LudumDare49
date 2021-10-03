@@ -7,6 +7,7 @@ namespace Entity
 {
     public abstract class EntityController : MonoBehaviour
     {
+        public bool Active { get; set; } = true;
         [SerializeField] Collider entityCollider;
         [SerializeField] float maxPatience = 20f;
         [SerializeField] float resetPatience = 30f;
@@ -63,7 +64,7 @@ namespace Entity
 
         public virtual void FixedUpdate()
         {
-            if (AILevel <= 0 || PlayerReference.IsAnimated) return;
+            if (AILevel <= 0 || PlayerReference.IsAnimated || !Active) return;
 
             if(IsRendered())
             {

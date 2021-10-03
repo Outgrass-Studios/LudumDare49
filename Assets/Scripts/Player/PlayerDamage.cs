@@ -16,6 +16,8 @@ public class PlayerDamage : MonoBehaviour
     [SerializeField] Color fadeColor;
     [SerializeField] float fadeDuration;
 
+    public static bool IsGod { get; set; } = false;
+
     private void Start()
     {
         maxHealth = health;
@@ -26,6 +28,7 @@ public class PlayerDamage : MonoBehaviour
     }
     public void Hurt(int damagePoints)
     {
+        if (IsGod) return;
         health -= damagePoints;
         if (health <= 0)
             Kill();
@@ -33,6 +36,7 @@ public class PlayerDamage : MonoBehaviour
     }
     public void Kill()
     {
+        if (IsGod) return;
         qDebug.Log("Player was killed", "player");
         CursorManager.ChangeMovementState("death", false);
         CursorManager.ChangeLookState("death", false);

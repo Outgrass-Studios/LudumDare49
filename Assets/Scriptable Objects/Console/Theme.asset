@@ -36,3 +36,5 @@ MonoBehaviour:
     color: {r: 1, g: 0, b: 1, a: 1}
   - colorName: player
     color: {r: 0, g: 0.17392573, b: 0.6037736, a: 1}
+  - colorName: system
+    color: {r: 0, g: 0.8235294, b: 0.6037736, a: 1}
