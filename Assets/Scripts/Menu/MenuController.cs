@@ -12,7 +12,6 @@ namespace Menu
         private void Awake()
         {
             MenuManager.Singleton?.AddMenu(this);
-            gameObject.SetActive(false);
         }
 
         public void ChangeMenu(string menuName)

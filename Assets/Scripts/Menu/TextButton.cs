@@ -30,5 +30,10 @@ namespace Menu
             if (text == null) return;
             baseText = text.text;
         }
+
+        private void OnDisable()
+        {
+            ChangeText(baseText);
+        }
     }
 }
