@@ -16,12 +16,6 @@ public static class CursorManager
     public static bool CanLook() =>
         lookStates.Count == 0;
 
-    [RuntimeInitializeOnLoadMethod]
-    static void Initialize()
-    {
-        Cursor.lockState = CursorLockMode.Locked;
-    }
-
     public static void ChangeCursorState(string state, bool value)
     {
         switch(value)
