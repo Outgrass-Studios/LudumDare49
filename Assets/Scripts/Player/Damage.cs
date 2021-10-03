@@ -2,19 +2,22 @@ using UnityEngine;
 using qASIC;
 using System.Collections;
 using UnityEngine.Rendering;
-using UnityEngine.Rendering.Universal;
 
 public class Damage : MonoBehaviour
 {
     int health = 100;
     int maxHealth;
-    Vignette vignette;
-    
+    Volume volume;
+    [SerializeField] AnimationCurve animationCurve = AnimationCurve.EaseInOut(0, 0, 0.5f, 1);
+    [SerializeField] AnimationCurve intensityCurve = AnimationCurve.EaseInOut(0f, 0f, 1f, 1f);
+
     private void Start()
     {
         maxHealth = health;
-        
-        GameObject.FindWithTag("Volume").GetComponent<Volume>().profile.TryGet(out vignette);
+
+        volume = GameObject.FindWithTag("Volume")?.GetComponent<Volume>();
+        if (volume != null)
+            volume.weight = intensityCurve.Evaluate(0f);
     }
     public void Hurt(int damagePoints)
     {
@@ -41,13 +44,12 @@ public class Damage : MonoBehaviour
     }
     private IEnumerator AnimateVignette()
     {
-        if(vignette)
+        if(volume)
         {
-            float startIntensity = vignette.intensity.value;
-            AnimationCurve curve = AnimationCurve.EaseInOut(0, 0, 0.5f, 1);
+            float startIntensity = volume.weight;
             for (float t = 0; t < 0.5f; t += Time.deltaTime)
             {
-                vignette.intensity.value = Mathf.Lerp(startIntensity*maxHealth, maxHealth-health, curve.Evaluate(t))/maxHealth;
+                volume.weight = intensityCurve.Evaluate(Mathf.Lerp(startIntensity*maxHealth, maxHealth-health, animationCurve.Evaluate(t))/maxHealth);
                 yield return new WaitForEndOfFrame();
             }
         }

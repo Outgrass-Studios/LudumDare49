@@ -27,7 +27,7 @@ namespace Player
         {
             startPosition = transform.position;
             endPosition = pos;
-            startRotation = transform.localRotation;
+            startRotation = transform.rotation;
             endRotation = rot;
             OnEndAnimation = onEnd;
             animating = true;
@@ -51,7 +51,7 @@ namespace Player
             time += Time.deltaTime;
             float value = curve.Evaluate(time / duration);
             transform.position = Vector3.Lerp(startPosition, endPosition, value);
-            transform.localRotation = Quaternion.Lerp(startRotation, endRotation, value);
+            transform.rotation = Quaternion.Lerp(startRotation, endRotation, value);
 
             if (time < duration) return;
             animating = false;
