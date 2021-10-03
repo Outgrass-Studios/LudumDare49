@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using Player;
 using UnityEngine;
 
 namespace Entity
@@ -17,13 +16,13 @@ namespace Entity
 
             switch (currentState)
             {
-                case ArsonistState.lighted:
+                case ArsonistState.prepared:
                     //Play audio
                     matchstick.SetActive(true);
                     break;
-                case ArsonistState.prepared:
+                case ArsonistState.lighted:
                     //Plau audio
-                    //kill
+                    PlayerReference.Singleton?.damage?.Kill();
                     break;
             }
         }
