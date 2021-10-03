@@ -9,6 +9,8 @@ namespace Entity
         [SerializeField] GameObject brickPrefab;
         [SerializeField] float brickSpawnRadius = 0.5f;
         [SerializeField] float brickForceMultiplier = 0.5f;
+        [SerializeField] int minBrickDamage = 40;
+        [SerializeField] int maxBrickDamage = 70;
 
         public override void OnPlayerIgnore()
         {
@@ -31,6 +33,7 @@ namespace Entity
             }
 
             rb.AddForce(force * brickForceMultiplier, ForceMode.Impulse);
+            PlayerReference.Singleton?.damage?.Hurt(Random.Range(minBrickDamage, maxBrickDamage));
         }
     }
 }
