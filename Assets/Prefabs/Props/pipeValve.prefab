@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 565877393794270127}
   - component: {fileID: 3491905892734405642}
   - component: {fileID: 1698220591986243776}
-  m_Layer: 0
+  - component: {fileID: 6906672414419493147}
+  m_Layer: 3
   m_Name: pipeValve
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -81,3 +82,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &6906672414419493147
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 905706010071030037}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 8691780276856062721, guid: 477ef74408d205a4ea9e2602aeeb88a5, type: 3}

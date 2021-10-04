@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5909777412433819708}
   - component: {fileID: 3569421492854440671}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,7 +102,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 898412146939749225}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Spiot light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -179,6 +179,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 356cd8838c1aa804bb5b3b0a23a1e57f, type: 3}
       propertyPath: m_Name
       value: SpotLight
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 356cd8838c1aa804bb5b3b0a23a1e57f, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 356cd8838c1aa804bb5b3b0a23a1e57f, type: 3}
