@@ -377,6 +377,21 @@ MonoBehaviour:
   impatienceRange: 2
   noticeMultiplier: 1
   matchstick: {fileID: 3683065660696264007}
+  channelName: 
+  equipClipData:
+    clip: {fileID: 8300000, guid: 3563ed4a134adc3429b9c61cc3c72c42, type: 3}
+    group: {fileID: -4489582426176933413, guid: 763bf2cdf7ce89342bf61f79a5a5e4c7, type: 2}
+    loop: 0
+    replace: 1
+    useGlobalControls: 1
+  deathClipData:
+    clip: {fileID: 8300000, guid: 276c60ab05851724bad82ee344cbc883, type: 3}
+    group: {fileID: -4489582426176933413, guid: 763bf2cdf7ce89342bf61f79a5a5e4c7, type: 2}
+    loop: 0
+    replace: 1
+    useGlobalControls: 1
+  explosionColor: {r: 1, g: 1, b: 1, a: 1}
+  duration: 0.2
 --- !u!65 &6669625610490025379
 BoxCollider:
   m_ObjectHideFlags: 0

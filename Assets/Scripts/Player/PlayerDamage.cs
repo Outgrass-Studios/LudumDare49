@@ -42,11 +42,24 @@ public class PlayerDamage : MonoBehaviour
         CursorManager.ChangeLookState("death", false);
         FadeController.Fade(fadeColor, fadeDuration, new System.Action(() =>
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-            CursorManager.ChangeMovementState("death", true);
-            CursorManager.ChangeLookState("death", true);
+            HandleOnFade();
         }));
     }
+
+    public void KillInstant()
+    {
+        if (IsGod) return;
+        qDebug.Log("Killed player instant", "player");
+        HandleOnFade();
+    }
+
+    void HandleOnFade()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        CursorManager.ChangeMovementState("death", true);
+        CursorManager.ChangeLookState("death", true);
+    }
+
     public void Heal(int healPoints)
     {
         health += healPoints;

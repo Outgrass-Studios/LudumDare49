@@ -1,5 +1,7 @@
 using Player;
 using UnityEngine;
+using qASIC.AudioManagment;
+using System;
 
 namespace Entity
 {
@@ -8,21 +10,33 @@ namespace Entity
         enum ArsonistState { idle, prepared, lighted };
         ArsonistState currentState = ArsonistState.idle;
 
-        public GameObject matchstick;
+        [SerializeField] GameObject matchstick;
+        [SerializeField] string channelName;
+        [SerializeField] AudioData equipClipData;
+        [SerializeField] AudioData deathClipData;
+
+        [Space]
+        [SerializeField] Color explosionColor = Color.white;
+        [SerializeField] float duration = 0.2f;
 
         public override void OnPlayerIgnore()
         {
+            if (currentState == ArsonistState.lighted) return;
             currentState++;
 
             switch (currentState)
             {
                 case ArsonistState.prepared:
-                    //Play audio
+                    AudioManager.Play(channelName, equipClipData);
                     matchstick.SetActive(true);
                     break;
                 case ArsonistState.lighted:
-                    //Plau audio
-                    PlayerReference.Singleton?.damage?.Kill();
+                    AudioManager.Play(channelName, deathClipData);
+                    if (PlayerDamage.IsGod) return;
+                    FadeController.Fade(explosionColor, duration, new Action(() =>
+                    {
+                        PlayerReference.Singleton?.damage?.KillInstant();
+                    }));
                     break;
             }
         }

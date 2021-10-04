@@ -8178,6 +8178,11 @@ MonoBehaviour:
   impatienceRange: 2
   noticeMultiplier: 1
   matchstick: {fileID: 1691492149}
+  source: {fileID: 0}
+  equipClip: {fileID: 0}
+  lightClip: {fileID: 0}
+  explosionColor: {r: 1, g: 1, b: 1, a: 1}
+  duration: 0.2
 --- !u!135 &1801128220
 SphereCollider:
   m_ObjectHideFlags: 0
