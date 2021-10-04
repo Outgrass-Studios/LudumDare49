@@ -9,6 +9,8 @@ public class OpenableInteractable : MonoBehaviour, Interactable
     [SerializeField] Animator anim;
     [SerializeField] string triggerName = "open";
     [SerializeField] float animationDuration = 0.25f;
+    [SerializeField] UnityEngine.Events.UnityEvent OnBoxStartOpen;
+    [SerializeField] Collider topCollider;
 
     public bool IsActive { get; set; } = true;
 
@@ -20,8 +22,10 @@ public class OpenableInteractable : MonoBehaviour, Interactable
 
     IEnumerator WaitForAnimation(Action onInteractionDone)
     {
+        OnBoxStartOpen.Invoke();
         anim?.SetTrigger(triggerName);
         yield return new WaitForSeconds(animationDuration);
         onInteractionDone?.Invoke();
+        topCollider.enabled = false;
     }
 }

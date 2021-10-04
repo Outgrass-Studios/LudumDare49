@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 using Player;
+using UnityEngine.Events;
 
 public class CartController : MonoBehaviour
 {
@@ -27,6 +28,8 @@ public class CartController : MonoBehaviour
         public Vector3 endPoint;
         public AnimationCurve curve = AnimationCurve.Linear(0f, 0f, 1f, 1f);
         public float duration = 5f;
+        public UnityEvent OnStartAnimation;
+        public UnityEvent OnEndAnimation;
 
         public void DrawGizmos(Transform transform, Color color)
         {
@@ -73,6 +76,7 @@ public class CartController : MonoBehaviour
     void PlayAnimation(CartAnimation animation)
     {
         currentAnimation = animation;
+        currentAnimation.OnStartAnimation.Invoke();
         PlayerReference.IsAnimated = true;
         time = 0f;
         cameraTransform = PlayerReference.Singleton.cam.transform;
@@ -95,6 +99,7 @@ public class CartController : MonoBehaviour
         if (cameraTransform != null) cameraTransform.position = cart.position + cameraOffset;
 
         if (time < currentAnimation.duration) return;
+        currentAnimation.OnEndAnimation.Invoke();
         currentAnimation = null;
         PlayerReference.IsAnimated = false;
         OnEndAnimation?.Invoke();
