@@ -28,7 +28,11 @@ namespace Player
             if (controller == null)
                 qDebug.LogError("Character controller has not been added!");
         }
-
+        private void Start()
+        {
+            CursorManager.ChangeLookState("interact", true);
+            CursorManager.ChangeMovementState("interact", true);
+        }
         private void Update()
         {
             Vector3 path = GetPath();

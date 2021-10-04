@@ -55,9 +55,9 @@ public class PlayerDamage : MonoBehaviour
 
     void HandleOnFade()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         CursorManager.ChangeMovementState("death", true);
         CursorManager.ChangeLookState("death", true);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void Heal(int healPoints)
