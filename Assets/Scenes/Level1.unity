@@ -1512,6 +1512,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
+    - target: {fileID: 2660815889259028190, guid: 3ca51d68cb189834cb32ddb213179ceb, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2660815889259028191, guid: 3ca51d68cb189834cb32ddb213179ceb, type: 3}
       propertyPath: m_Pivot.x
       value: 0
