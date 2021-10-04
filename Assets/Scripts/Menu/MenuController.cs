@@ -4,6 +4,7 @@ namespace Menu
 {
     public class MenuController : MonoBehaviour
     {
+        public bool assignAtAwake = true;
         public string menuName;
 
         [Tooltip("An array of other menus that should be activated")]
@@ -11,6 +12,7 @@ namespace Menu
 
         private void Awake()
         {
+            if (!assignAtAwake) return;
             MenuManager.Singleton?.AddMenu(this);
         }
 
