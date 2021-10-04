@@ -74,7 +74,7 @@ public class FadeController : MonoBehaviour
         if (!IsFading || image == null) return;
 
         time += Time.deltaTime;
-        CurrentColor = Color.Lerp(startColor, endColor, animationCurve.Evaluate(time / duration));
+        CurrentColor = Color.Lerp(startColor, endColor, animationCurve.Evaluate(duration == 0 ? 1f : time / duration));
         ApplyCurrentColor();
 
         if (time < duration) return;
