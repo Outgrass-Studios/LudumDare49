@@ -185,6 +185,7 @@ GameObject:
   - component: {fileID: 4356376020327429843}
   - component: {fileID: 1776214672}
   - component: {fileID: 1920048161351105582}
+  - component: {fileID: 4618824883758524877}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -398,6 +399,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stateName: global
   state: 1
+--- !u!114 &4618824883758524877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1260531452463023047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f24fc85c79ae83d4ca529b535a823dd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  channel: ambient
+  data:
+    clip: {fileID: 8300000, guid: aa0f02acc7408c943b423ffa9146416b, type: 3}
+    group: {fileID: -3456699537905708484, guid: 763bf2cdf7ce89342bf61f79a5a5e4c7, type: 2}
+    loop: 1
+    replace: 0
+    useGlobalControls: 1
 --- !u!1 &3119982555256398615
 GameObject:
   m_ObjectHideFlags: 0
