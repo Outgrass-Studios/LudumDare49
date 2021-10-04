@@ -404,37 +404,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4c66f7bbc34e434d99e16c9c100db79, type: 3}
---- !u!1 &291813600 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3079878369792589791, guid: a4c66f7bbc34e434d99e16c9c100db79, type: 3}
-  m_PrefabInstance: {fileID: 291813599}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &291813601 stripped
-BoxCollider:
-  m_CorrespondingSourceObject: {fileID: 1036202526607014110, guid: a4c66f7bbc34e434d99e16c9c100db79, type: 3}
-  m_PrefabInstance: {fileID: 291813599}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &291813602
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 291813600}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b8b318729d80a84b93b500d5e9628bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  entityCollider: {fileID: 291813601}
-  maxPatience: 2
-  resetPatience: 4
-  defaultPatience: 3
-  impatienceRange: 2
-  noticeMultiplier: 0.25
-  fadeColor: {r: 0, g: 0, b: 0, a: 1}
-  fadeDuration: 0
-  waitDuration: 1
 --- !u!1001 &352151733
 PrefabInstance:
   m_ObjectHideFlags: 0
