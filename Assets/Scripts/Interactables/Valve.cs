@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using Mechanics;
 using System.Collections;
+using Audio;
 
 public class Valve : MonoBehaviour, Interactable
 {
@@ -14,9 +15,12 @@ public class Valve : MonoBehaviour, Interactable
     Vector3 rotation;
     Vector3 offset;
 
+    AudioLoopController audioLoop;
+
     private void Awake()
     {
         offset = transform.localEulerAngles;
+        audioLoop = GetComponent<AudioLoopController>();
     }
 
     public void Interact(Action onInteractionDone)
@@ -26,6 +30,7 @@ public class Valve : MonoBehaviour, Interactable
 
     IEnumerator RotateValve(Action onRotationDone)
     {
+        audioLoop?.Play();
         for (float t = 0; t < duration; t += Time.deltaTime)
         {
             SetRotation(t);
@@ -37,6 +42,7 @@ public class Valve : MonoBehaviour, Interactable
         if (CartController.Singleton != null)
             CartController.Singleton.remainingTasks--;
         IsActive = false;
+        audioLoop?.Stop();
         onRotationDone?.Invoke();
     }
 
