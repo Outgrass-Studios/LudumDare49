@@ -8,7 +8,8 @@ public class PlayRandomLoop : MonoBehaviour
     [SerializeField] float firstProbability;
     [SerializeField] float maxTimeGap;
 
-    [SerializeField] string channel;
+    [SerializeField] string channel1;
+    [SerializeField] string channel2;
     [SerializeField] AudioData clip1;
     [SerializeField] AudioData clip2;
     float time = 0;
@@ -21,10 +22,13 @@ public class PlayRandomLoop : MonoBehaviour
     {
         float drawed =  Random.Range(0.0f, 1.0f);
         AudioData clip = drawed < firstProbability ? clip1 : clip2;
+        string channel = drawed < firstProbability ? channel1 : channel2;
         AudioManager.Play(channel, clip);
         while (time < clip.clip.length)
+        {
             time += 0.5f;
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSecondsRealtime(0.5f);
+        }
         StartCoroutine(AwaitGap());
     }
 
@@ -35,9 +39,10 @@ public class PlayRandomLoop : MonoBehaviour
         while(time < gap)
         {
             time += 0.5f;
-            yield return new WaitForSeconds(0.5f);
-
+            yield return new WaitForSecondsRealtime(0.5f);
         }
+        time = 0;
+        StartCoroutine(PlayAndAwaitEndOfClip());
     }
 
 }
