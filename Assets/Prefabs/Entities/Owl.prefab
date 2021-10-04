@@ -284,14 +284,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityCollider: {fileID: 1036202526607014110}
-  maxPatience: 2
-  resetPatience: 4
-  defaultPatience: 3
-  impatienceRange: 2
-  noticeMultiplier: 0.25
+  maxPatience: 0.5
+  resetPatience: 0.5
+  defaultPatience: 0.2
+  impatienceRange: 0.3
+  noticeMultiplier: 0.1
   fadeColor: {r: 0, g: 0, b: 0, a: 1}
   fadeDuration: 0
   waitDuration: 1
+  jumpScare: {fileID: 0}
 --- !u!1 &3174896469082832072
 GameObject:
   m_ObjectHideFlags: 0

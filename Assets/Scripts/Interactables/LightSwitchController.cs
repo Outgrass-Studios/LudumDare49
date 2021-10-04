@@ -31,6 +31,12 @@ namespace Mechanics
             source = GetComponent<AudioSourceController>();
         }
 
+        private void OnDestroy()
+        {
+            LightManager.enabledSwitches.Clear();
+            LightManager.switches.Clear();
+        }
+
         int index;
 
         public void DisableSwitch()

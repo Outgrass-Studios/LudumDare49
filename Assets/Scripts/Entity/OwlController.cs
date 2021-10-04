@@ -10,6 +10,7 @@ namespace Entity
         [SerializeField] Color fadeColor = Color.black;
         [SerializeField] float fadeDuration = 0f;
         [SerializeField] float waitDuration = 1f;
+        [SerializeField] GameObject jumpScare;
 
         public override void OnPlayerIgnore()
         {
@@ -25,6 +26,7 @@ namespace Entity
             FadeController.Fade(fadeColor, fadeDuration, new Action(() =>
             {
                 StartCoroutine(WaitForKill());
+                jumpScare.SetActive(true);
             }));
         }
 
