@@ -3,12 +3,14 @@ using UnityEngine;
 using Mechanics;
 using System.Collections;
 using Audio;
+using UnityEngine.Events;
 
 public class Valve : MonoBehaviour, Interactable
 {
     [SerializeField] float duration = 3f;
     [SerializeField] float rotationSpeed = 1f;
     [SerializeField] Vector3 multiplier = Vector3.right;
+    [SerializeField] UnityEvent OnClose;
 
     public bool IsActive { get; set; } = true;
 
@@ -44,6 +46,7 @@ public class Valve : MonoBehaviour, Interactable
         IsActive = false;
         audioLoop?.Stop();
         onRotationDone?.Invoke();
+        OnClose.Invoke();
     }
 
     void SetRotation(float time)

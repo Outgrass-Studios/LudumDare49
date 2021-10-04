@@ -10,6 +10,7 @@ public class FadeController : MonoBehaviour
     [SerializeField] AnimationCurve animationCurve;
     [SerializeField] Color defaultColor;
     [SerializeField] float sceneLoadDuration;
+    [SerializeField] GameObject raycast;
 
     public static FadeController Singleton { get; private set; }
     public static Color CurrentColor { get; private set; }
@@ -66,6 +67,7 @@ public class FadeController : MonoBehaviour
         Singleton.duration = duration;
         Singleton.startColor = CurrentColor;
         Singleton.endColor = color;
+        Singleton.raycast.SetActive(true);
         IsFading = true;
     }
 
@@ -78,6 +80,7 @@ public class FadeController : MonoBehaviour
         ApplyCurrentColor();
 
         if (time < duration) return;
+        Singleton.raycast.SetActive(false);
         time = 0f;
         duration = 0f;
         IsFading = false;
