@@ -290,9 +290,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityCollider: {fileID: 6669625610490025379}
-  maxPatience: 4
-  resetPatience: 5
-  defaultPatience: 2
+  maxPatience: 6
+  resetPatience: 7
+  defaultPatience: 4
   impatienceRange: 2
   noticeMultiplier: 0.25
   matchstick: {fileID: 8370922414744343836}
