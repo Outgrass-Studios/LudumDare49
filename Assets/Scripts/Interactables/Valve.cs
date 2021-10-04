@@ -36,6 +36,7 @@ public class Valve : MonoBehaviour, Interactable
 
         if (CartController.Singleton != null)
             CartController.Singleton.remainingTasks--;
+        IsActive = false;
         onRotationDone?.Invoke();
     }
 
