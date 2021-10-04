@@ -115,9 +115,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityCollider: {fileID: 2698345514773109152}
-  maxPatience: 2
-  resetPatience: 3
-  defaultPatience: 0
+  maxPatience: 3
+  resetPatience: 4
+  defaultPatience: 4
   impatienceRange: 1
   noticeMultiplier: 0.25
   brickPrefab: {fileID: 6600875416823354380, guid: 9399b57dcd1424741ad7744c89ca8759, type: 3}
