@@ -186,6 +186,7 @@ GameObject:
   - component: {fileID: 1776214672}
   - component: {fileID: 1920048161351105582}
   - component: {fileID: 4618824883758524877}
+  - component: {fileID: 993431638116428614}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -418,6 +419,33 @@ MonoBehaviour:
     loop: 1
     replace: 0
     useGlobalControls: 1
+--- !u!114 &993431638116428614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1260531452463023047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0fcecc926cd2974abd8a12a54751b73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firstProbability: 0.5
+  maxTimeGap: 5
+  channel: ambient
+  clip1:
+    clip: {fileID: 8300000, guid: 866e193c4ee9ec54c9b47cb5a4319750, type: 3}
+    group: {fileID: -3456699537905708484, guid: 763bf2cdf7ce89342bf61f79a5a5e4c7, type: 2}
+    loop: 0
+    replace: 0
+    useGlobalControls: 0
+  clip2:
+    clip: {fileID: 8300000, guid: 46f812e1a649f204a97964a6b3540d75, type: 3}
+    group: {fileID: -3456699537905708484, guid: 763bf2cdf7ce89342bf61f79a5a5e4c7, type: 2}
+    loop: 0
+    replace: 0
+    useGlobalControls: 0
 --- !u!1 &3119982555256398615
 GameObject:
   m_ObjectHideFlags: 0
