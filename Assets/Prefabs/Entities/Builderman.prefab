@@ -118,8 +118,8 @@ MonoBehaviour:
   maxPatience: 2
   resetPatience: 3
   defaultPatience: 0
-  impatienceRange: 3
-  noticeMultiplier: 4
+  impatienceRange: 1
+  noticeMultiplier: 0.25
   brickPrefab: {fileID: 6600875416823354380, guid: 9399b57dcd1424741ad7744c89ca8759, type: 3}
   brickSpawnRadius: 1
   brickForceMultiplier: 1
