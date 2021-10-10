@@ -253,9 +253,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6774793898708306146}
-  - component: {fileID: 6774793898708306147}
   - component: {fileID: 6774793898708306140}
   - component: {fileID: 6982359901845852903}
+  - component: {fileID: 865025301418446313}
   m_Layer: 0
   m_Name: Game console
   m_TagString: Untagged
@@ -278,38 +278,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6774793898708306147
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6774793898708306141}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e75bbe96523a2e547bcbc72e3780bae5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  toggleObject: {fileID: 6774793898630487951}
-  keyMode: 0
-  OnChangeState:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6982359901845852903}
-        m_TargetAssemblyTypeName: ChangeCursorState, Assembly-CSharp
-        m_MethodName: ChangeState
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  togglerTag: console
-  addToDontDestroy: 1
-  key: 96
 --- !u!114 &6774793898708306140
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -342,6 +310,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stateName: console
   invert: 1
+--- !u!114 &865025301418446313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6774793898708306141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b67d99c8fdd9314a82dc367d7cfd6f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toggleObject: {fileID: 6774793898630487951}
+  keyMode: 0
+  OnChangeState:
+    m_PersistentCalls:
+      m_Calls: []
+  togglerTag: console
+  addToDontDestroy: 1
+  keyName: console
 --- !u!1 &6774793898751800010
 GameObject:
   m_ObjectHideFlags: 0
