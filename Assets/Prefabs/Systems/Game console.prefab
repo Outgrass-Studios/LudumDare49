@@ -329,7 +329,7 @@ MonoBehaviour:
       m_Calls: []
   togglerTag: console
   addToDontDestroy: 1
-  keyName: console
+  keyName: Console
 --- !u!1 &6774793898751800010
 GameObject:
   m_ObjectHideFlags: 0
