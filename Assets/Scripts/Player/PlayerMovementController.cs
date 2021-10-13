@@ -20,6 +20,7 @@ namespace Player
         float velocity;
         bool isGrounded;
 
+        public static float Speed { get; set; } = 1f;
         public static bool Noclip { get; set; }
 
         private void Awake()
@@ -53,7 +54,7 @@ namespace Player
             float y = InputManager.GetAxis("Up", "Down");
             float x = InputManager.GetAxis("Right", "Left");
 
-            return (transform.right * x + transform.forward * y) * (InputManager.GetInput("Sprint") ? runSpeed : speed);
+            return (transform.right * x + transform.forward * y) * (InputManager.GetInput("Sprint") ? runSpeed : speed) * Speed;
         }
 
         private void OnDrawGizmosSelected()
